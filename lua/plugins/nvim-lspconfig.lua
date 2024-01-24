@@ -43,6 +43,9 @@ return {
                         i = function(a, b)
                             if cmp.visible() then
                                 cmp.select_next_item({ behavior = cmp.SelectBehavior.Replace })
+                            else
+                                -- fallback to default behaviour by inserting a tab character
+                                vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Tab>", true, true, true), "n", true)
                             end
                         end
                     }),
