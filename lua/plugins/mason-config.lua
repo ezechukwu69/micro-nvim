@@ -15,11 +15,17 @@ return {
         end)
         require("mason").setup()
         require("mason-lspconfig").setup({
-          ensure_installed = {},
+          ensure_installed = { "emmet_ls" },
           handlers = {
            lsp_zero.default_setup
           }
         })
+        -- add heex files to emmet_ls
+        local lspconfig = require("lspconfig")
+        lspconfig.emmet_ls.setup({
+          filetypes = { "heex", 'ex', "html", "jsx", "tsx" },
+        })
+        lspconfig.zls.setup({})
        end
     },
 }
