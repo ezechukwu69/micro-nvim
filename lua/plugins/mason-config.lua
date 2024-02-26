@@ -6,6 +6,7 @@ return {
         {"VonHeikemen/lsp-zero.nvim"},
         {"folke/neodev.nvim"},
     },
+    event = "BufReadPost",
     config =  function()
         local lsp_zero = require("lsp-zero")
         lsp_zero.on_attach(function(client, bufnr)

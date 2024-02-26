@@ -5,6 +5,8 @@ return {
             { "SmiteshP/nvim-navic" },
             { "neovim/nvim-lspconfig" },
         },
+        lazy = false,
+        priority = 900,
         config = function()
             local lsp_zero = require('lsp-zero').preset({})
             local navic = require("nvim-navic")
