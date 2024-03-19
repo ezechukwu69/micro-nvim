@@ -6,13 +6,14 @@ vim.cmd('set shiftwidth=4')
 vim.cmd('set expandtab')
 vim.cmd('set relativenumber')
 vim.cmd('set numberwidth=2')
+vim.cmd(":hi NonText guifg=bg")
 --Lua:
 vim.g.material_style = "deep ocean"
 vim.opt.termguicolors = true
 
 vim.keymap.set("i", "jj", "<Esc>")
 vim.keymap.set("i", "jk", "<Esc>")
-vim.keymap.set("n", "<leader>d", "<C-d>", {
+vim.keymap.set("n", "<leader>dd", "<C-d>", {
     desc = "Scroll down"
 })
 vim.keymap.set("n", "<leader>u", "<C-u>", {

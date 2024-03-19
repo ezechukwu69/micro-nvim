@@ -12,7 +12,7 @@ return {
                     show_model = true,
                     command = "curl --silent --no-buffer -X POST " .. utils.read_dotenv()['GEN_URL'] .. "api/generate -d $body"
                 })
-                vim.keymap.set({ 'n', 'v' }, '<leader>g', ':Gen<CR>')
+                vim.keymap.set({ 'n', 'v' }, '<leader>gn', ':Gen<CR>')
             else
                 vim.ui.input({ prompt = "Gen url: " }, function(url)
                     if url == nil then
@@ -22,7 +22,7 @@ return {
                             show_model = true,
                             command = "curl --silent --no-buffer -X POST http://localhost:11434/api/generate -d $body"
                         })
-                        vim.keymap.set({ 'n', 'v' }, '<leader>g', ':Gen<CR>')
+                        vim.keymap.set({ 'n', 'v' }, '<leader>gn', ':Gen<CR>')
                     else
                         print("curl --silent --no-buffer -X POST " .. url .. "api/generate -d $body")
                         gen.setup({
@@ -30,7 +30,7 @@ return {
                             show_model = true,
                             command = "curl --silent --no-buffer -X POST " .. url .. "api/generate -d $body"
                         })
-                        vim.keymap.set({ 'n', 'v' }, '<leader>g', ':Gen<CR>')
+                        vim.keymap.set({ 'n', 'v' }, '<leader>gn', ':Gen<CR>')
                         utils.set_dotenv('GEN_URL', url)
                     end
                 end)
