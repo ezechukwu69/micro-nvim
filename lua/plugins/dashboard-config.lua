@@ -2,6 +2,7 @@ return {
     {
       'nvimdev/dashboard-nvim',
       event = 'VimEnter',
+      priority = 20000,
       config = function()
         require('dashboard').setup {
           -- config
