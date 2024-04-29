@@ -6,6 +6,7 @@ return {
         config = function ()
             require("bufferline").setup{
                 options = {
+                    mode = "tabs",
                     diagnostics = "nvim_lsp",
                     indicator = {
                         style = 'underline'

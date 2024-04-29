@@ -1,7 +1,6 @@
 return {
     {
         "neovim/nvim-lspconfig",
-        lazy = false,
         dependencies = {
             { "hrsh7th/cmp-nvim-lsp" },
             { "hrsh7th/cmp-buffer" },
@@ -11,10 +10,10 @@ return {
             { "L3MON4D3/LuaSnip" },
             { "saadparwaiz1/cmp_luasnip" }
         },
-        event = "BufEnter",
+        priority = 7000,
         config = function()
             local cmp = require 'cmp'
-            local luasnip = require('luasnip')
+            require("lsp-zero").preset({}).extend_lspconfig()
             cmp.setup({
                 snippet = {
                     -- REQUIRED - you must specify a snippet engine
@@ -36,11 +35,15 @@ return {
                     ['<C-e>'] = cmp.mapping.abort(),
                     ['<CR>'] = cmp.mapping.confirm({ select = false }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
                     ['<Up>'] = cmp.mapping({
-                       
+                        i = function()
+                            if cmp.visible() then
+                                cmp.select_prev_item()
+                            end
+                        end
                     }),
                     ["<S-Tab>"] = cmp.mapping.select_prev_item(),
                     ["<Tab>"] = cmp.mapping({
-                        i = function(a, b)
+                        i = function(_, _)
                             if cmp.visible() then
                                 cmp.select_next_item({ behavior = cmp.SelectBehavior.Replace })
                             else
@@ -85,6 +88,10 @@ return {
                     { name = 'cmdline' }
                 })
             })
+            local lspconfig = require('lspconfig')
+            -- lspconfig.elixirls.setup {
+            --     cmd = { "elixir-ls" },
+            -- }
             local capabilities = require('cmp_nvim_lsp').default_capabilities()
         end
     }
