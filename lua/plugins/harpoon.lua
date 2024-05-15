@@ -12,9 +12,7 @@ return {
                 }
             })
             vim.keymap.set("n", "<leader>hm", function() harpoon:list():add() end, { desc = "Add file to harpoon" })
-            vim.keymap.set("n", "<C-S-P>", function() harpoon:list():prev() end, { desc = "Previous file in harpoon" })
-            vim.keymap.set("n", "<C-S-N>", function() harpoon:list():next() end, { desc = "Next file in harpoon" })
-            vim.keymap.set("n", "<leader>hp>", function() harpoon:list():prev() end, { desc = "Previous file in harpoon" })
+            vim.keymap.set("n", "<leader>hp", function() harpoon:list():prev() end, { desc = "Previous file in harpoon" })
             vim.keymap.set("n", "<leader>hn", function() harpoon:list():next() end, { desc = "Next file in harpoon" })
             local conf = require("telescope.config").values
             local function toggle_telescope(harpoon_files)

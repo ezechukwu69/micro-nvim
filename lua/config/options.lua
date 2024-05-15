@@ -18,6 +18,7 @@ vim.opt.list = true
 vim.opt.listchars = { tab = "▸ ", trail = "·", nbsp = "␣" }
 vim.opt.cursorline = true
 vim.opt.hlsearch = true
+vim.opt.conceallevel = 2
 
 vim.cmd [[
     nnoremap K <Cmd>lua vim.lsp.buf.hover()<CR>
