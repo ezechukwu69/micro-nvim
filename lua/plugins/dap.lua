@@ -17,7 +17,6 @@ return {
                     library = { plugins = { "nvim-dap-ui" }, types = true }
                 }
             )
-            require("mason").setup()
             require("mason-nvim-dap").setup({
                 ensure_installed = { "js", "node2" },
                 handlers = {

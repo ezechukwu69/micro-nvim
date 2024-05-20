@@ -1,7 +1,7 @@
 return {
     {
         "coffebar/neovim-project",
-        enabled: false,
+        enabled = false,
         opts = {
             projects = { -- define project roots
                 "~/Development/flutter/*",
