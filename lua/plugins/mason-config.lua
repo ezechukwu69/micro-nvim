@@ -19,6 +19,9 @@ return {
                 if client.server_capabilities.documentSymbolProvider then
                     navic.attach(client, bufnr)
                 end
+                if client.server_capabilities.inlayHintProvider then
+                    vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
+                end
                 local opts = { buffer = bufnr }
                 vim.keymap.set('n', '<leader>cr', '<cmd>lua vim.lsp.buf.rename()<cr>', opts)
                 vim.keymap.set('n', '<leader>ca', '<cmd>lua vim.lsp.buf.code_action()<cr>', opts)
@@ -38,7 +41,7 @@ return {
             end)
             require("mason").setup()
             require("mason-lspconfig").setup({
-                ensure_installed = { "emmet_ls" },
+                ensure_installed = { "emmet_ls", "jdtls", "java-debug-adapter", "java-test" },
                 handlers = {
                     lsp_zero.default_setup
                 }
@@ -46,6 +49,19 @@ return {
             require("lspconfig").zls.setup({})
             require("lspconfig").emmet_ls.setup({
                 filetypes = { "html", "css", "scss", "javascript", "javascriptreact", "typescript", "typescriptreact", "heex", 'ex', "html", "jsx", "tsx" },
+            })
+            vim.api.nvim_create_autocmd('LspAttach', {
+                desc = 'Enable inlay hints',
+                callback = function(event)
+                    local id = vim.tbl_get(event, 'data', 'client_id')
+                    local client = id and vim.lsp.get_client_by_id(id)
+                    if client == nil or not client.supports_method('textDocument/inlayHint') then
+                        return
+                    end
+
+                    -- warning: this api is not stable yet
+                    vim.lsp.inlay_hint.enable(true, { bufnr = event.buf })
+                end,
             })
         end
     },

@@ -17,6 +17,9 @@ return {
                 if client.server_capabilities.documentSymbolProvider then
                     navic.attach(client, bufnr)
                 end
+                if client.server_capabilities.inlayHintProvider then
+                    vim.lsp.buf.inlay_hint(bufnr)
+                end
                 local opts = { buffer = bufnr }
                 vim.keymap.set('n', '<leader>cr', '<cmd>lua vim.lsp.buf.rename()<cr>', opts)
                 vim.keymap.set('n', '<leader>ca', '<cmd>lua vim.lsp.buf.code_action()<cr>', opts)
