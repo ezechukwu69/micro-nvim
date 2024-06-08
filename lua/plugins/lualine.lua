@@ -61,7 +61,13 @@ return {
                 sections = {
                     lualine_a = { 'mode' },
                     lualine_b = { 'branch', 'diff', 'diagnostics' },
-                    lualine_c = { 'buffers' },
+                    lualine_c = { 
+                        -- 'buffers'
+                        {
+                            'filename',
+                            path = 1
+                        },
+                    },
                     lualine_x = { 'tabs', {
 
                         function()
