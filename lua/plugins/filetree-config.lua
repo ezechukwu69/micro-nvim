@@ -9,9 +9,14 @@ return {
             "3rd/image.nvim",              -- Optional image support in preview window: See `# Preview Mode` for more information
         },
         cmd = "Neotree",
-        opts = {},
+        opts = {
+            window = {
+                position = "right",
+                width = 40,
+            }
+        },
         keys = {
-            { "<leader>e", "<cmd>Neotree toggle float<cr>", desc = "Neotree toggle float" },
+            { "<leader>e", "<cmd>Neotree toggle<cr>", desc = "Neotree toggle" },
         },
     },
     {
