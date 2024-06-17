@@ -41,7 +41,7 @@ return {
             end)
             require("mason").setup()
             require("mason-lspconfig").setup({
-                ensure_installed = { "emmet_ls", "jdtls", "java-debug-adapter", "java-test" },
+                ensure_installed = { "emmet_ls", "jdtls" },
                 handlers = {
                     lsp_zero.default_setup
                 }
