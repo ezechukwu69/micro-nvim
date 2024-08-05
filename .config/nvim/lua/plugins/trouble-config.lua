@@ -8,11 +8,12 @@ return {
             -- refer to the configuration section below
         },
         keys = {
-            { "<leader>xx", "<cmd>TroubleToggle<cr>", desc = "Toggle trouble" },
-            { "<leader>xw", "<cmd>TroubleToggle workspace_diagnostics<cr>", desc = "Workspace trouble" },
-            { "<leader>xd", "<cmd>TroubleToggle document_diagnostics<cr>", desc = "Document trouble" },
-            { "<leader>xq", "<cmd>TroubleToggle quickfix<cr>", desc = "Quickfix trouble" },
-            { "<leader>xl", "<cmd>TroubleToggle loclist<cr>", desc = "Loclist trouble" },
+            { "<leader>xx", "<cmd>Trouble diagnostics toggle<cr>", desc = "Toggle trouble" },
+            { "<leader>xw", "<cmd>Trouble diagnostics toggle<cr>", desc = "Workspace trouble" },
+            { "<leader>xd", "<cmd>Trouble document_symbols toggle<cr>", desc = "Document trouble" },
+            { "<leader>xq", "<cmd>Trouble quickfix toggle<cr>", desc = "Quickfix trouble" },
+            { "<leader>xl", "<cmd>Trouble loclist toggle<cr>", desc = "Loclist trouble" },
+            { "<leader>xs", "<cmd>Trouble symbols toggle<cr>", desc = "Loclist trouble" },
             {"]t", function() require("trouble").next({skip_groups = true, jump = true}) end, desc = "Next trouble"},
             {"[t", function() require("trouble").previous({skip_groups = true, jump = true}) end, desc = "Previous trouble"},
         }

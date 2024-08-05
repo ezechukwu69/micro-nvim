@@ -17,7 +17,7 @@ return {
         require("telescope").load_extension("package_info")
         -- Show dependency versions
         require("which-key").register({
-            ["<LEADER>n"] = { name = "N (node,etc.)" },
+            {"<LEADER>n", group = "N (node,etc.)" },
         })
 
         vim.keymap.set({ "n" }, "<LEADER>nns", require("package-info").show,
