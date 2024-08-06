@@ -3,6 +3,12 @@ return {
         'nvimdev/lspsaga.nvim',
         config = function()
             require('lspsaga').setup({
+                finder = {
+                    layout = "float",
+                    methods = {
+                        ["tyd"] = 'textDocument/typeDefinition'
+                    }
+                },
                 definition = {
                     keys = {
                         edit = "<C-o>",
@@ -26,7 +32,7 @@ return {
         event = "LspAttach",
         dependencies = {
             'nvim-treesitter/nvim-treesitter', -- optional
-            'nvim-tree/nvim-web-devicons', -- optional
+            'nvim-tree/nvim-web-devicons',     -- optional
         }
     }
 }

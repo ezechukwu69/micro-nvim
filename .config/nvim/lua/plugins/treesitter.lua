@@ -24,8 +24,8 @@ return {
                         border = 'none',
                         floating_preview_opts = {},
                         peek_definition_code = {
-                            ["<leader>gf"] = { query = "@function.outer", desc = "Peek function" },
-                            ["<leader>gc"] = { query = "@class.outer", desc = "Peek class" },
+                            ["<leader>pf"] = { query = "@function.outer", desc = "Peek function" },
+                            ["<leader>pc"] = { query = "@class.outer", desc = "Peek class" },
                         },
                     },
                     select = {
