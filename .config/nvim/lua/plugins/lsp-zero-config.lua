@@ -44,7 +44,7 @@ return {
             end)
                 
                 -- vim.keymap.set("t")
-                vim.keymap.set('t',"<esc>", "<C-\\><C-n>", { desc = "Escape terminal mode" })
+                vim.keymap.set('t',"<C-x>", "<C-\\><C-n>", { desc = "Escape terminal mode" })
                 vim.keymap.set('n',"<leader>gt", "<cmd>Lspsaga term_toggle<cr>")
                 vim.keymap.set('n',"<C-t>", "<cmd>Lspsaga term_toggle<cr>")
                 vim.keymap.set('t',"<C-t>", "<cmd>Lspsaga term_toggle<cr>")
