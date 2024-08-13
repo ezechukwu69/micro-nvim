@@ -5,7 +5,7 @@ return {
             { "williamboman/mason-lspconfig.nvim" },
             { "neovim/nvim-lspconfig" },
             { "VonHeikemen/lsp-zero.nvim" },
-            { "folke/neodev.nvim" },
+            -- { "folke/neodev.nvim" },
         },
         lazy = false,
         config = function()

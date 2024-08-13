@@ -1,6 +1,6 @@
 vim.wo.number = true
 -- vim.cmd.colorscheme "catppuccin-mocha"
-vim.cmd('colorscheme ayu-dark')
+-- vim.cmd('colorscheme ayu-dark')
 -- vim.cmd('colorscheme nordic')
 vim.cmd('set tabstop=4')
 vim.cmd('set shiftwidth=4')

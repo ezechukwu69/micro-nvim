@@ -32,15 +32,6 @@ return {
             }
         },
         keys = {
-            { "<leader>ff",       "<cmd>Telescope find_files<cr>" },
-            { "<leader><leader>", "<cmd>Telescope find_files<cr>" },
-            { "<leader>f/",       "<cmd>Telescope live_grep<cr>" },
-            { "<leader>fb",       "<cmd>Telescope buffers<cr>" },
-            { "<leader>fh",       "<cmd>Telescope help_tags<cr>" },
-            { "<leader>fc",       "<cmd>Telescope commands<cr>" },
-            { "<leader>fe",       "<cmd>Telescope file_browser<cr>" },
-            { "<leader>fg",       "<cmd>Telescope git_files<cr>" },
-            { "<leader>fs",       "<cmd>Telescope git_status<cr>" },
         },
         config = function(opts)
             require('telescope').setup(opts)

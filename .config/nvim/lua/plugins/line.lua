@@ -5,7 +5,6 @@ return {
         enabled = false,
         config = function()
             local lualine = require('lualine')
-
             -- Color table for highlights
             -- stylua: ignore
             local colors = {
@@ -453,11 +452,13 @@ return {
                     basic.lsp_diagnos,
                     basic.git,
                     basic.divider,
+                    { git_comps.git_branch({ icon = '  ' }), { 'blue', 'black' }, 90 },
+                    { ' ', hl_list.Black },
+                    { git_comps.git_changes(), { 'green', 'black' }, 90 },
+                    { ' ', hl_list.Black },
                     basic.lsp_name,
                     { ' ', hl_list.Black },
                     basic.macro_recording,
-                    { ' ', hl_list.Black },
-                    { git_comps.git_branch({ icon = '  ' }), { 'green', 'black' }, 90 },
                     { ' ', hl_list.Black },
                     basic.vi_mode,
                     basic.right,
@@ -501,7 +502,7 @@ return {
                     { '  ', { 'white', 'black' } },
                     { helper.separators.slant_right, { 'black', 'black_light' } },
                     { b_components.divider, '' },
-                    { b_components.file_name(''), { 'white', 'black_light' } },
+                    { b_components.file_name(' '), { 'white', 'black_light' } },
                 },
                 always_active = true,
                 show_last_status = true

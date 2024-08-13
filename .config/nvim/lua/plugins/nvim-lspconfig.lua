@@ -13,7 +13,11 @@ return {
         priority = 7000,
         config = function()
             local cmp = require 'cmp'
-            require("lsp-zero").preset({}).extend_lspconfig()
+            local defaults = require("cmp.config.default")()
+            vim.api.nvim_set_hl(0, "CmpGhostText", { link = "Comment", default = true })
+
+            local auto_select = true
+            require("lsp-zero").extend_lspconfig()
             cmp.setup({
                 snippet = {
                     -- REQUIRED - you must specify a snippet engine
@@ -24,6 +28,11 @@ return {
                         -- vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
                     end,
                 },
+                auto_brackets = {}, -- configure any filetype to auto add brackets
+                completion = {
+                    completeopt = "menu,menuone,noinsert" .. (auto_select and "" or ",noselect"),
+                },
+                preselect = auto_select and cmp.PreselectMode.Item or cmp.PreselectMode.None,
                 window = {
                     completion = cmp.config.window.bordered(),
                     documentation = cmp.config.window.bordered(),
@@ -54,6 +63,12 @@ return {
                         end
                     }),
                 }),
+                experimental = {
+                    ghost_text = {
+                        hl_group = "CmpGhostText",
+                    },
+                },
+                sorting = defaults.sorting,
                 sources = cmp.config.sources({
                     { name = 'nvim_lsp' },
                     -- { name = 'vsnip' }, -- For vsnip users.
@@ -129,7 +144,6 @@ return {
                 vim.keymap.set('n', "<leader>gt", "<cmd>Lspsaga term_toggle<cr>", opts)
                 vim.keymap.set("n", "<leader>q", "<cmd>lua vim.diagnostic.setloclist()<cr>", opts)
             end)
-            
         end
     }
 }

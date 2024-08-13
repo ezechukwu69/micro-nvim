@@ -23,7 +23,6 @@ return {
         },
         keys = {
             { "<leader>fd", "<cmd>Telescope neovim-project discover<cr>" },
-            { "<leader>fp", "<cmd>Telescope neovim-project history<cr>" },
         },
         lazy = false,
         priority = 100,

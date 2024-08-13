@@ -55,6 +55,8 @@ return {
                     { name = 'path' }
                 }, {
                     { name = 'cmdline' }
+                }, {
+                    name = "lazydev"
                 })
             })
         end

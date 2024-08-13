@@ -12,11 +12,11 @@ return {
         config = function()
             require("dapui").setup()
             require("nvim-dap-virtual-text").setup()
-            require("neodev").setup(
-                {
-                    library = { plugins = { "nvim-dap-ui" }, types = true }
-                }
-            )
+            -- require("neodev").setup(
+            --     {
+            --         library = { plugins = { "nvim-dap-ui" }, types = true }
+            --     }
+            -- )
             require("mason-nvim-dap").setup({
                 ensure_installed = { "js", "node2" },
                 handlers = {
@@ -41,8 +41,18 @@ return {
                 { noremap = true, silent = true, desc = "Step out" })
             set_map("n", "<leader>dt", ":lua require'dap'.toggle_breakpoint()<CR>",
                 { noremap = true, silent = true, desc = "Toggle breakpoint" })
-            set_map("n", "<leader>df", ":lua require'dapui'.float_element()<CR>",
-                { noremap = true, silent = true, desc = "Float element" })
+            set_map("n", "<leader>dfr", ":lua require'dapui'.float_element(\"repl\", {position = \"center\"})<CR>",
+                { noremap = true, silent = true, desc = "Float element (Repl)" })
+            set_map("n", "<leader>dfw", ":lua require'dapui'.float_element(\"watches\", {position = \"center\"})<CR>",
+                { noremap = true, silent = true, desc = "Float element (Watches)" })
+            set_map("n", "<leader>dfs", ":lua require'dapui'.float_element(\"scopes\", {position = \"center\"})<CR>",
+                { noremap = true, silent = true, desc = "Float element (Scopes)" })
+            set_map("n", "<leader>dfb", ":lua require'dapui'.float_element(\"breakpoints\", {position = \"center\"})<CR>",
+                { noremap = true, silent = true, desc = "Float element (Breakpoints)" })
+            set_map("n", "<leader>dfc", ":lua require'dapui'.float_element(\"console\", {position = \"center\"})<CR>",
+                { noremap = true, silent = true, desc = "Float element (Console)" })
+            set_map("n", "<leader>dfS", ":lua require'dapui'.float_element(\"stacks\", {position = \"center\"})<CR>",
+                { noremap = true, silent = true, desc = "Float element (Stacks)" })
             set_map("n", "<leader>dcb", ":lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>",
                 { noremap = true, silent = true, desc = "Set breakpoint condition" })
             set_map("n", "<leader>dlb",
